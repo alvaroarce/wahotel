@@ -44,7 +44,7 @@
         <div class="text">
           <h1>Proyecto Componentes</h1>
           <h2>Integración Continua y Deploy Continuo</h2>
-          <h2>Hotel TRES VAGOS</h2>
+          <h3>Hotel TRES VAGOS</h3>
         </div>
       </div>
     </div>
