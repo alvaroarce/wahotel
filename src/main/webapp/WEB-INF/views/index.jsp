@@ -52,6 +52,6 @@
       
     </footer>
 
-    <script src={$setBackgroundJs}"></script>
+    <script src="${setBackgroundJs}"></script>
   </body>
 </html>
