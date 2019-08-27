@@ -8,12 +8,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import com.aws.codestar.projecttemplates.controller.HelloWorldController;
+import com.aws.codestar.projecttemplates.controller.UserController;
 
 /**
  * Spring configuration for sample application.
  */
 @Configuration
-@ComponentScan({ "com.aws.codestar.projecttemplates.configuration" })
+@ComponentScan(value = { "com.aws.codestar.projecttemplates.configuration" },
+        basePackages = {"com.aws.codestar.projecttemplates.controller"})
 @PropertySource("classpath:application.properties")
 public class ApplicationConfig {
 
@@ -25,7 +27,13 @@ public class ApplicationConfig {
 
     @Bean
     public HelloWorldController helloWorld() {
+
         return new HelloWorldController(this.siteName);
+    }
+
+    @Bean
+    public UserController user() {
+        return new UserController(null);
     }
 
     /**
@@ -35,5 +43,8 @@ public class ApplicationConfig {
     public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
+
+    @Value("${User.siteName2}")
+    private String siteName2;
 
 }
